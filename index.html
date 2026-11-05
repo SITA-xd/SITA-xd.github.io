@@ -3,74 +3,457 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Xida Liu (刘禧达) - School of Electronics Engineering and Computer Science, Peking University">
-<title>Xida Liu (刘禧达)</title>
+<title>Xida Liu (刘禧达) — Peking University</title>
+<meta name="description" content="Xida Liu (刘禧达), undergraduate student at Peking University, School of Electronics Engineering and Computer Science. Vision-Language Pre-training (VLP) and multimodal learning.">
+<meta name="author" content="Xida Liu">
+<meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1013" media="(prefers-color-scheme: dark)">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Xida Liu (刘禧达)">
+<meta property="og:description" content="Undergraduate student at Peking University. Vision-Language Pre-training (VLP) and multimodal learning.">
+<meta property="og:url" content="https://sita-xd.github.io/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Xida Liu",
+  "alternateName": "刘禧达",
+  "url": "https://sita-xd.github.io/",
+  "email": "mailto:2400013157@stu.pku.edu.cn",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "Peking University"
+  },
+  "knowsAbout": [
+    "Vision-Language Pre-training",
+    "Multimodal Learning",
+    "Deep Learning"
+  ]
+}
+</script>
+
 <style>
-  :root { --ink:#1a1a1a; --muted:#5b6470; --line:#e3e6ea; --accent:#0b5cad; }
+  :root {
+    --bg: #fbfaf8;
+    --panel: #ffffff;
+    --ink: #15181c;
+    --muted: #646c77;
+    --faint: #8b939e;
+    --line: #e7e5e1;
+    --accent: #1d4e89;
+    --accent-soft: #eef3f9;
+    --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 12px 32px rgba(16, 24, 40, .06);
+    --radius: 16px;
+    --serif: ui-serif, Georgia, "Times New Roman", "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC",
+            "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1013;
+      --panel: #16191e;
+      --ink: #f1f3f5;
+      --muted: #9ba4af;
+      --faint: #767f8a;
+      --line: #262b33;
+      --accent: #7db2f2;
+      --accent-soft: #152130;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 12px 32px rgba(0, 0, 0, .35);
+    }
+  }
+
   * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
   body {
-    margin: 0; padding: 64px 24px 80px;
-    background: #f7f8fa; color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    line-height: 1.7; -webkit-font-smoothing: antialiased;
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  main {
-    max-width: 680px; margin: 0 auto; background: #fff;
-    padding: 48px 48px 44px; border: 1px solid var(--line);
-    border-radius: 14px; box-shadow: 0 1px 3px rgba(16,24,40,.04), 0 8px 28px rgba(16,24,40,.05);
+
+  .wrap { width: min(920px, 100% - 48px); margin-inline: auto; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 104px 0 72px;
+    border-bottom: 1px solid var(--line);
   }
-  h1 { font-size: 34px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -.5px; }
-  .zh { font-size: 19px; color: var(--muted); font-weight: 400; margin: 0 0 22px; }
-  .affil { margin: 0; color: var(--muted); font-size: 16px; }
-  .email {
-    margin: 24px 0 0; padding: 14px 18px; font-size: 17px;
-    background: #f2f7fd; border: 1px solid #d6e6f7; border-radius: 10px;
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: -320px -160px auto -160px;
+    height: 720px;
+    background:
+      radial-gradient(46% 58% at 22% 12%, rgba(29, 78, 137, .13), transparent 68%),
+      radial-gradient(40% 52% at 82% 0%, rgba(122, 92, 200, .10), transparent 70%);
+    pointer-events: none;
   }
-  .email span { color: var(--muted); font-size: 13px; letter-spacing: .08em;
-                text-transform: uppercase; display: block; margin-bottom: 2px; }
-  a { color: var(--accent); text-decoration: none; word-break: break-all; }
-  a:hover { text-decoration: underline; }
-  hr { border: 0; border-top: 1px solid var(--line); margin: 34px 0; }
-  h2 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase;
-       color: var(--muted); font-weight: 600; margin: 0 0 12px; }
-  ul { margin: 0; padding-left: 20px; }
-  li { margin: 5px 0; }
-  footer { margin-top: 40px; font-size: 13px; color: #9aa3ad; }
-  @media (max-width: 560px) {
-    body { padding: 20px 12px 48px; }
-    main { padding: 32px 22px; border-radius: 10px; }
-    h1 { font-size: 27px; }
+
+  .hero > .wrap { position: relative; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0 0 22px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--faint);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.6rem, 6.4vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -.022em;
+    margin: 0 0 10px;
+  }
+
+  .zh-name {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+    color: var(--muted);
+    letter-spacing: .28em;
+    margin: 0 0 26px;
+  }
+
+  .tagline {
+    font-size: 1.06rem;
+    color: var(--muted);
+    max-width: 46ch;
+    margin: 0 0 34px;
+  }
+
+  .hero-contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 18px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--panel);
+    color: var(--ink);
+    font-size: .94rem;
+    box-shadow: var(--shadow);
+    transition: transform .18s ease, border-color .18s ease;
+  }
+
+  .btn:hover { text-decoration: none; transform: translateY(-1px); border-color: var(--accent); }
+
+  .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn-primary svg { opacity: .9; }
+  @media (prefers-color-scheme: dark) { .btn-primary { color: #0b1016; } }
+
+  .btn svg { width: 16px; height: 16px; flex: none; }
+
+  /* ---------- sections ---------- */
+  main { padding: 8px 0 40px; }
+
+  .block {
+    display: grid;
+    grid-template-columns: 168px minmax(0, 1fr);
+    gap: 40px;
+    padding: 44px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .block:last-child { border-bottom: 0; }
+
+  .label {
+    font-size: 11.5px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--faint);
+    padding-top: 6px;
+  }
+
+  .prose p { margin: 0 0 14px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { font-weight: 600; }
+
+  /* interest cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px 20px 18px;
+    box-shadow: var(--shadow);
+    transition: transform .2s ease, border-color .2s ease;
+  }
+
+  .card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+
+  .card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 6px;
+    letter-spacing: -.01em;
+  }
+
+  .card p { margin: 0; font-size: .9rem; color: var(--muted); line-height: 1.6; }
+
+  .card .tag {
+    display: inline-block;
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 2px 9px;
+    margin-bottom: 12px;
+  }
+
+  /* timeline */
+  .timeline { list-style: none; margin: 0; padding: 0; }
+
+  .timeline li {
+    position: relative;
+    padding: 0 0 22px 22px;
+    border-left: 1px solid var(--line);
+  }
+
+  .timeline li:last-child { padding-bottom: 0; border-left-color: transparent; }
+
+  .timeline li::before {
+    content: "";
+    position: absolute;
+    left: -4.5px;
+    top: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+
+  .timeline .when { font-size: .82rem; color: var(--faint); letter-spacing: .04em; }
+  .timeline .what { font-weight: 600; margin: 2px 0 2px; }
+  .timeline .where { font-size: .92rem; color: var(--muted); }
+
+  /* contact rows */
+  .rows { display: grid; gap: 2px; }
+
+  .row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: .95rem;
+  }
+
+  .row:last-child { border-bottom: 0; }
+
+  .row .k {
+    width: 96px;
+    flex: none;
+    font-size: 11.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  .row .v { min-width: 0; word-break: break-word; }
+
+  footer {
+    padding: 26px 0 56px;
+    font-size: 12.5px;
+    color: var(--faint);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* ---------- motion ---------- */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .rise { opacity: 0; animation: rise .72s cubic-bezier(.22, .8, .28, 1) forwards; }
+  .d1 { animation-delay: .05s; }
+  .d2 { animation-delay: .13s; }
+  .d3 { animation-delay: .21s; }
+  .d4 { animation-delay: .30s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .rise { animation: none; opacity: 1; }
+    .btn, .card { transition: none; }
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 720px) {
+    .wrap { width: min(920px, 100% - 40px); }
+    .hero { padding: 72px 0 56px; }
+    .block { grid-template-columns: 1fr; gap: 16px; padding: 34px 0; }
+    .label { padding-top: 0; }
+    .row { flex-direction: column; gap: 2px; }
+    .row .k { width: auto; }
+    footer { justify-content: flex-start; }
+  }
+
+  @media print {
+    .hero::before { display: none; }
+    body { background: #fff; }
+    .card, .btn { box-shadow: none; }
   }
 </style>
 </head>
 <body>
-<main>
 
-  <h1>Xida Liu</h1>
-  <p class="zh">刘禧达</p>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow rise d1">Peking University · School of EECS</p>
 
-  <p class="affil">
-    School of Electronics Engineering and Computer Science<br>
-    Peking University
-  </p>
+    <h1 class="rise d2">Xida Liu</h1>
+    <p class="zh-name rise d2">刘禧达</p>
 
-  <p class="email">
-    <span>Email</span>
-    <a href="mailto:2400013157@stu.pku.edu.cn">2400013157@stu.pku.edu.cn</a>
-  </p>
+    <p class="tagline rise d3">
+      Undergraduate student at Peking University, working on how models connect what they
+      see with what they read &mdash; Vision-Language Pre-training and multimodal learning.
+    </p>
 
-  <hr>
+    <div class="hero-contact rise d4">
+      <a class="btn btn-primary" href="mailto:2400013157@stu.pku.edu.cn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2.5"></rect>
+          <path d="m3.6 7 8.4 6 8.4-6"></path>
+        </svg>
+        2400013157@stu.pku.edu.cn
+      </a>
+      <a class="btn" href="https://github.com/SITA-xd" rel="me">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.34 1.12 2.91.86.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.11-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9l-.01 2.81c0 .27.18.6.69.49A10.06 10.06 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</header>
 
-  <h2>Research Interests</h2>
-  <ul>
-    <li>Natural Language Processing</li>
-    <li>Large Language Models</li>
-    <li>Machine Learning</li>
-  </ul>
+<main class="wrap">
 
-  <footer>Last updated: November 2026</footer>
+  <section class="block">
+    <div class="label">About</div>
+    <div class="prose">
+      <p>
+        I am an undergraduate student at <strong>Peking University</strong>, School of Electronics
+        Engineering and Computer Science (EECS).
+      </p>
+      <p>
+        My interest is in <strong>Vision-Language Pre-training (VLP)</strong> &mdash; how image and
+        text representations are aligned in a shared space, and how such pre-trained models
+        transfer to downstream multimodal tasks. I am also curious about evaluation: what these
+        models actually learn, and where they quietly fail.
+      </p>
+      <p>
+        I am always happy to talk about research, reading lists, or collaboration ideas &mdash;
+        the fastest way to reach me is email.
+      </p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="label">Research</div>
+    <ul class="cards">
+      <li class="card">
+        <span class="tag">Focus</span>
+        <h3>Vision-Language Pre-training</h3>
+        <p>Aligning visual and textual representations; contrastive and generative pre-training objectives.</p>
+      </li>
+      <li class="card">
+        <span class="tag">Interest</span>
+        <h3>Multimodal Learning</h3>
+        <p>Transfer to downstream tasks such as retrieval, grounding, and visual question answering.</p>
+      </li>
+      <li class="card">
+        <span class="tag">Foundation</span>
+        <h3>Deep Learning</h3>
+        <p>Transformers, representation learning, and the empirical study of what models actually learn.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <div class="label">Education</div>
+    <ul class="timeline">
+      <li>
+        <div class="when">2024 &ndash; Present</div>
+        <div class="what">B.E. / B.S., Undergraduate</div>
+        <div class="where">Peking University &middot; School of Electronics Engineering and Computer Science</div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <div class="label">Contact</div>
+    <div class="rows">
+      <div class="row">
+        <span class="k">Email</span>
+        <span class="v"><a href="mailto:2400013157@stu.pku.edu.cn">2400013157@stu.pku.edu.cn</a></span>
+      </div>
+      <div class="row">
+        <span class="k">GitHub</span>
+        <span class="v"><a href="https://github.com/SITA-xd">github.com/SITA-xd</a></span>
+      </div>
+      <div class="row">
+        <span class="k">Affiliation</span>
+        <span class="v">Peking University, School of EECS &middot; Beijing, China</span>
+      </div>
+    </div>
+  </section>
 
 </main>
+
+<footer class="wrap">
+  <span>&copy; 2026 Xida Liu &middot; 刘禧达</span>
+  <span>Last updated: November 2026</span>
+</footer>
+
 </body>
 </html>
